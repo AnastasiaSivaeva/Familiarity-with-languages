@@ -3,8 +3,12 @@
 double XCoord(int B1, int K1, int B2, int K2)
 {
      double x = 0;
+     double x1 = 0;
+     double x2 = 0;
     
-      x = (B1 - B2) / (K1 - K2);
+      x1 = (B2 - B1);
+      x2 = (K1 - K2);
+      x = x1 / x2;
     return x;
 }
 
@@ -29,6 +33,5 @@ Console.WriteLine("Введите значение k2: ");
 int k2 = int.Parse(Console.ReadLine());
 
 double result1 = XCoord(b1, k1, b2, k2);
-Console.WriteLine(String.Join("Точка пересечения, координата x; ", result1));
 double result2 = YCoord(b1, k1, result1);
-Console.WriteLine(String.Join("Точка пересечения, координата y; ", result2));
+Console.WriteLine(String.Join(", ",result1, result2));

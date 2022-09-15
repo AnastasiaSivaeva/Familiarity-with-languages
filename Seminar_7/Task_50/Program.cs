@@ -1,5 +1,5 @@
 ﻿// Напишите программу, которая на вход принимает число и генерирует случайный двумерный массив, и возвращает индексы этого элемента или же указание, что такого элемента нет
-// Console.WriteLine("Такого элемента нет")
+
 
 
 int[,] GetArray( int M, int N, int minValue, int maxValue)
@@ -31,22 +31,20 @@ void PrintArray(int [,] arr2)
 }
 
 int IndNumber(int[,] arr3, int num)
-{
+{ 
      for (int i = 0; i < arr3.GetLength(0); i++)
     { 
         for (int j = 0; j < arr3.GetLength(1); j++)
         {
-           if (num == arr3[i, j])
+           if (num != arr3[i, j])
            {
-            Console.WriteLine(String.Join("Индексы элемента  , ",i, j));
+             Console.WriteLine("Такого элемента нет");
            }
            else
            {
-            i++;
-            j++;
+            Console.WriteLine("Индексы элемента: {0}", String.Join(", ",i, j));
            }
         }
-        
     }
     return 0;
 }

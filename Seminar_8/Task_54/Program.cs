@@ -28,26 +28,26 @@ void PrintArray(int [,] arr2)
    
 }
 
-int[,] MaxNum(int [,] arr3, int m1, int n1)
+int[,] MaxNum(int [,] arr3)
 {
-    int[,] arr = new int [m1, n1];
+    int[,] arr = new int [arr3.GetLength(0), arr3.GetLength(1)];
     int temp = 0;
     for (int i = 0; i < arr3.GetLength(0); i++)
-    { 
-        for (int j = 0; j < arr3.GetLength(1) ; j++)
+    {   
+        temp = 0;
+        for (int j = 0; j < arr3.GetLength(1) -1 ; j++)
         {
-           
-           if (arr [i, j] < arr [i, j + 1])
-           {
-               temp = arr[i, j + 1];
-               arr[i, j + 1] = arr[i, j];
-               arr[i, j] =  temp;
-           }
+               if (arr3 [i, j] < arr3 [i, j + 1])
+              {
+               temp = arr3[i, j + 1];
+               arr3[i, j + 1] = arr3[i, j];
+               arr3[i, j] =  temp;
+              }
         }
-    
     }
     return arr;
 }
+
 
 
 Console.WriteLine("Введите количество строк: ");
@@ -57,5 +57,6 @@ int n = int.Parse(Console.ReadLine());
 
 int[,] MyArray = GetArray(m, n, -10, 5);
 PrintArray(MyArray);
-int[,] result = MaxNum(MyArray, m, n);
-Console.WriteLine(String.Join("; ",(result)));
+int[,] Array2 = MaxNum(MyArray);
+Console.WriteLine("Массив: ");
+PrintArray(Array2);

@@ -35,14 +35,14 @@ int[,] MaxNum(int [,] arr3)
     for (int i = 0; i < arr3.GetLength(0); i++)
     {   
         temp = 0;
-        for (int j = 0; j < arr3.GetLength(1) -1 ; j++)
-        {
-               if (arr3 [i, j] < arr3 [i, j + 1])
-              {
-               temp = arr3[i, j + 1];
-               arr3[i, j + 1] = arr3[i, j];
-               arr3[i, j] =  temp;
-              }
+        for (int j = 0; j < arr3.GetLength(1) - 1; j++)
+        { 
+               if (arr [i, j + 1] > arr [i, j])
+                {
+                 temp = arr[i, j + 1];
+                 arr[i, j + 1] = arr[i, j];
+                 arr[i, j] =  temp;
+                }
         }
     }
     return arr;
@@ -57,6 +57,6 @@ int n = int.Parse(Console.ReadLine());
 
 int[,] MyArray = GetArray(m, n, -10, 5);
 PrintArray(MyArray);
-int[,] Array2 = MaxNum(MyArray);
-Console.WriteLine("Массив: ");
-PrintArray(Array2);
+int[,] result = MaxNum(MyArray);
+Console.WriteLine("Отсортированный массив: ");
+PrintArray(result);

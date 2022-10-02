@@ -18,7 +18,7 @@ int[,,] GetArray( int X, int Y, int Z, int minValue, int maxValue)
     return result;
 }
 
-void ElArray( int[,,] array)
+int[,,] ElArray( int[,,] array)
 {
     int[] result = new int [array.GetLength(0)*array.GetLength(1)*array.GetLength(2)];
 
@@ -42,6 +42,7 @@ void ElArray( int[,,] array)
         }
         
     }
+    return result;
 }
 
 
@@ -75,4 +76,5 @@ int z = int.Parse(Console.ReadLine());
 
 int[,,] MyArray = GetArray(x, y, z, 10, 99);
 ElArray(MyArray);
-PrintArray(ElArray);
+int[,,] result= ElArray(MyArray);
+Console.WriteLine(String.Join("; ",(result)));
